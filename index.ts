@@ -1,2 +1,2 @@
-export { some_function, some_class } from './src/Something'
-export { default } from './src/Something'
+export { default as Arg } from './src/Arg'
+export { default as Shell } from './src/Shell'
