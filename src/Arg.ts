@@ -1,4 +1,5 @@
 import { ArrayUtil as _, StringUtil as s } from '@aelesia/commons'
+import File from './File'
 
 export default class Arg {
   /**
@@ -7,11 +8,12 @@ export default class Arg {
    */
   static v_first_enum(accepted_values: string[]): string {
     let command = process.argv[2]
+    if (!command) throw Error(`No command provided. Accepted commands: ${accepted_values}`)
     let abc = accepted_values.find(it => {
-      return it.toLowerCase() === command?.toLowerCase() ?? false
+      return it.toLowerCase() === command.toLowerCase()
     })
     if (abc) return command
-    else throw Error(`Invalid command: ${command}. Accepted commands: ${accepted_values}`)
+    throw Error(`Invalid command: ${command}. Accepted commands: ${accepted_values}`)
   }
 
   /**
@@ -90,6 +92,14 @@ export default class Arg {
     } else {
       return undefined
     }
+  }
+
+  static v_file_path(key: string): string {
+    let file_path = this.v(key)
+    if (!File.exists(file_path)) {
+      throw Error(`File does not exist: ${file_path}`)
+    }
+    return file_path
   }
 
   /**

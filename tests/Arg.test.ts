@@ -104,4 +104,25 @@ describe('Arg', () => {
       Arg.v_first_enum(['command'])
     }).toThrowError()
   })
+
+  test('arg_file_path', async () => {
+    process.argv = ['path=./tests/file/test.txt']
+    expect(() => {
+      Arg.v_file_path('path')
+    }).not.toThrowError()
+  })
+
+  test('arg_file_path_error file does not exist', async () => {
+    process.argv = ['path=./tests/file/test1.txt']
+    expect(() => {
+      Arg.v_file_path('path')
+    }).toThrowError()
+  })
+
+  test('arg_file_path_error no key provided', async () => {
+    process.argv = ['not_a_path=./tests/file/test.txt']
+    expect(() => {
+      Arg.v_file_path('path')
+    }).toThrowError()
+  })
 })
