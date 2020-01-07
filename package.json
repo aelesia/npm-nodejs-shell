@@ -1,10 +1,10 @@
 {
-  "name": "@aelesia/npm-template",
-  "version": "0.1.2",
-  "description": "Template for NPM packages",
+  "name": "nodejs-shell",
+  "version": "0.1.0",
+  "description": "CLI Tools for Node",
   "author": "",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/aelesia/npm-nodejs-shell",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
