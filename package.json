@@ -9,10 +9,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsc --incremental false",
-    "compile": "tsc --noEmit && eslint src/** tests/** index.ts",
+    "compile": "tsc --noEmit && eslint src/**/*.ts tests/**/*.ts index.ts",
     "test": "jest",
     "test_coverage": "jest --collectCoverage",
-    "lint": "eslint src/** tests/** index.ts --fix"
+    "lint": "eslint src/**/*.ts tests/**/*.ts index.ts --fix"
   },
   "dependencies": {
     "@aelesia/commons": "^0.0.3"
