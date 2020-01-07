@@ -1,7 +1,7 @@
 import { spawn, spawnSync, SpawnSyncOptions } from 'child_process'
 import { StringUtil as _ } from '@aelesia/commons'
 
-export default class Shell {
+export class Shell {
   /**
    * Executes shell command and returns output as a string
    * Also removes trailing newline.
@@ -31,6 +31,16 @@ export default class Shell {
     return _._i(spawnSync(command, args, options).stdout.toString())
   }
 
+  static _(command: string, args?: string[], options?: SpawnSyncOptions): string {
+    let result = spawnSync(command, args, options)
+    if (result.status !== 0) {
+      throw new Error(result.stderr.toString())
+    } else if (result.error) {
+      throw result.error
+    }
+    return result.stdout.toString()
+  }
+
   static echo(text: string): void {
     spawnSync('echo', [text])
   }
@@ -40,6 +50,14 @@ export default class Shell {
    */
   static pwd(): string {
     return this.sh_s('pwd')
+  }
+
+  static rm(file_path: string): string {
+    return this._('rm', [file_path])
+  }
+
+  static copy(file1: string, file2: string): string {
+    return this._('cp', ['--', file1, file2])
   }
 
   /**

@@ -1,4 +1,4 @@
-import Shell from '../src/Shell'
+import { Shell } from '../src/Shell'
 
 describe('Shell', () => {
   test('pwd', async () => {

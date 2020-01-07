@@ -1,7 +1,7 @@
 import { ArrayUtil as _, StringUtil as s } from '@aelesia/commons'
-import File from './File'
+import { Files } from './Files'
 
-export default class Arg {
+export class Arg {
   /**
    * Returns the first argument value (process.argv[2])
    * @throws {Error} when accepted_values does not contain argument
@@ -96,9 +96,7 @@ export default class Arg {
 
   static v_file_path(key: string): string {
     let file_path = this.v(key)
-    if (!File.exists(file_path)) {
-      throw Error(`File does not exist: ${file_path}`)
-    }
+    Files.validate(file_path)
     return file_path
   }
 

@@ -1,4 +1,4 @@
-import Arg from '../src/Arg'
+import { Arg } from '../src/Arg'
 
 describe('Arg', () => {
   test('arg_v', async () => {
@@ -106,21 +106,21 @@ describe('Arg', () => {
   })
 
   test('arg_file_path', async () => {
-    process.argv = ['path=./tests/file/test.txt']
+    process.argv = ['path=./tests/files/test.txt']
     expect(() => {
       Arg.v_file_path('path')
     }).not.toThrowError()
   })
 
   test('arg_file_path_error file does not exist', async () => {
-    process.argv = ['path=./tests/file/test1.txt']
+    process.argv = ['path=./tests/files/test1.txt']
     expect(() => {
       Arg.v_file_path('path')
     }).toThrowError()
   })
 
   test('arg_file_path_error no key provided', async () => {
-    process.argv = ['not_a_path=./tests/file/test.txt']
+    process.argv = ['not_a_path=./tests/files/test.txt']
     expect(() => {
       Arg.v_file_path('path')
     }).toThrowError()
