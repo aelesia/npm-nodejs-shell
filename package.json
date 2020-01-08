@@ -12,7 +12,7 @@
     "compile": "tsc --noEmit && eslint . --ext .ts",
     "test": "jest",
     "test_coverage": "jest --collectCoverage",
-    "fix": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix"
   },
   "dependencies": {
     "@aelesia/commons": "^0.0.3"

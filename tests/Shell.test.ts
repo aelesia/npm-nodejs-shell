@@ -92,8 +92,7 @@ describe('Shell', () => {
   })
 
   test('find_root', async () => {
-    jest.spyOn(Shell, 'is_root_node_dir').mockImplementation((opt: any) => {
-      // console.log(opt.cwd)
+    jest.spyOn(Shell, 'is_root_node_dir').mockImplementation(() => {
       return false
     })
     expect(() => {

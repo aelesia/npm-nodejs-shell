@@ -1,4 +1,3 @@
-import { spawnSync } from 'child_process'
 import { Files } from '../Files'
 import { Shell } from '../Shell'
 import { rethrow } from '@aelesia/commons'
