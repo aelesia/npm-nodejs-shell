@@ -33,10 +33,10 @@ export class Shell {
 
   static _(command: string, args?: string[], options?: SpawnSyncOptions): string {
     let result = spawnSync(command, args, options)
-    if (result.status !== 0) {
-      throw new Error(result.stderr.toString())
-    } else if (result.error) {
+    if (result.error) {
       throw result.error
+    } else if (result.status !== 0) {
+      throw new Error(result.stderr.toString())
     }
     return result.stdout.toString()
   }
