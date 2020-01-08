@@ -1,6 +1,6 @@
 {
   "name": "nodejs-shell",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "CLI Tools for Node",
   "author": "",
   "license": "MIT",
@@ -9,10 +9,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsc --incremental false",
-    "compile": "tsc --noEmit && eslint src/**/*.ts tests/**/*.ts index.ts",
+    "compile": "tsc --noEmit && eslint .",
     "test": "jest",
     "test_coverage": "jest --collectCoverage",
-    "lint": "eslint src/**/*.ts tests/**/*.ts index.ts --fix"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "@aelesia/commons": "^0.0.3"
