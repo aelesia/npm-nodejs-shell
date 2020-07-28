@@ -32,6 +32,8 @@ export class OpenSSL {
         'enc',
         '-d',
         '-aes-256-cbc',
+        '-md',
+        'sha256',
         '-pass',
         `pass:${password}`,
         '-salt',
