@@ -8,6 +8,8 @@ export class OpenSSL {
     Shell._('openssl', [
       'enc',
       '-aes-256-cbc',
+      '-md',
+      'sha256',
       '-pass',
       `pass:${password}`,
       '-salt',
